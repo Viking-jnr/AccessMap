@@ -26,9 +26,9 @@ const SignUp = () =>{
             </Typography>
             <Box component="form" sx={{mt: 6, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3}}>
                 
-                <TextField label="Full Name" type="text" value={form.name} sx={{width: '50%'}} 
+                <TextField label="Full Name" type="text" value={form.name} sx={{width: {xs: '100%', lg: '50%'} }} 
                 onChange={(e) => setForm({...form, name: e.target.value})}/>
-                <TextField select label="Select Role" value={form.role} sx={{width: '50%'}}
+                <TextField select label="Select Role" value={form.role} sx={{width: {xs: '100%', lg: '50%'} }}
                 onChange={(e) => setForm({...form, role: e.target.value})}>
                     {roles.map((r)=> (
                         <MenuItem key={r} value={r}>
@@ -36,12 +36,12 @@ const SignUp = () =>{
                         </MenuItem>
                     ))}
                 </TextField>
-                <TextField label="Email" type="email" value={form.email} sx={{width: '50%'}} 
+                <TextField label="Email" type="email" value={form.email} sx={{width: {xs: '100%', lg: '50%'} }} 
                 onChange={(e) => setForm({...form, email: e.target.value})}/>
-                <TextField label="Password" type="password" value={form.password} sx={{width: '50%'}}
+                <TextField label="Password" type="password" value={form.password} sx={{width: {xs: '100%', lg: '50%'} }}
                 onChange={(e) => setForm({...form, password: e.target.value})} />
 
-                <Button variant="contained" sx={{textTransform: 'none', width: '50%', bgcolor: '#ee0e0eff'}}>Sign Up</Button>
+                <Button variant="contained" sx={{textTransform: 'none', width: {xs: '100%', lg: '50%'}, bgcolor: '#ee0e0eff'}}>Sign Up</Button>
                 <Typography variant="h5">
                     Already have an account?  
                     <Link href='/log-in' sx={{textDecoration: 'none'}}>Log In</Link>

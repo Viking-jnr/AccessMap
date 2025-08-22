@@ -3,6 +3,7 @@ import Hero from '../../../assets/Images/Hero.jpg';
 import { useNavigate } from "react-router-dom";
 import Header from "../../../assets/Components/Header";
 import Fade from "../../../assets/Components/Fade";
+import Footer from "../../../assets/Components/Footer";
 
 
 //Styled components
@@ -30,16 +31,16 @@ export default function Home() {
     return (
         <>
         <Header />
-        <Container maxWidth={'100vw'} mt={20} mb={5} >
-            <Box mt={20} sx={{display: 'flex', flexDirection: {xs: 'column', lg: 'row'}, }}>
+        <Container maxWidth={'100vw'} mt={{xs: 0, lg: 15}} mb={5} >
+            <Box mt={{xs: 5, lg: 15}} sx={{display: 'flex', flexDirection: {xs: 'column-reverse', lg: 'row'}, }}>
                 <Box sx={{display: 'flex',flexDirection: 'column', width: {xs: '100%', lg: '40%'}, textAlign: 'center'}}>
                     {/*Added a fade component to delay visibility of some content */}
                     <Fade delay={0.8}>
                     <Typography variant="h3" fontWeight={'bold'}  color="#ee0e0eff">
                         AccessMap Kenya
                     </Typography>
-                    <Typography variant="caption1" gutterBottom>
-                        <font face="monotype corsiva">Inform. Empower. Include</font>
+                    <Typography variant="caption1" gutterBottom  sx={{ fontFamily: "Brush Script MT, cursive" }}>
+                        Inform. Empower. Include
                     </Typography>
                     <Typography variant="subtitle1">
                         Helping everyone access services with confidence<br />
@@ -48,7 +49,7 @@ export default function Home() {
                     </Typography>
                     </Fade>
 
-                    <Fade delay={1.5}>
+                    <Fade delay={1.2}>
                     <Grid container spacing={2} justifyContent="center" mt={3}>
                         <Grid item>
                         <Button variant="contained" onClick={() => navigate('/log-in')} sx={Styles.Button}>
@@ -68,10 +69,15 @@ export default function Home() {
                     </Grid>
                     </Fade>
                 </Box>
+                
                 <Box sx={{width: {xs: '100%', lg: '60%'}}} >
-                    <img src={Hero} alt="PWD" title="Accessibility for PWD" style={{height: 300, width: '100%'}}/>
+                    <Fade delay={0.5}>
+                    <img src={Hero} alt="PWD" title="Accessibility for PWD" style={{height: '100%', width: '100%'}}/>
+                    </Fade>
                 </Box>
+                
             </Box>
+            <Fade delay={1.5}>
             <Box mt={10} gap={5} sx={{textAlign: 'center'}}>
                 <Typography variant="h4">
                     Are you a Service Provider or Government Official?
@@ -80,7 +86,9 @@ export default function Home() {
                     Go to Dashboard
                 </Button>
             </Box>
+            </Fade>
         </Container>
+        <Footer />
         </>
     )
 }

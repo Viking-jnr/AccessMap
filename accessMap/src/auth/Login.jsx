@@ -25,7 +25,7 @@ const Login = () =>{
                 <font face="monotype corsiva">Inform. Empower. Include</font>
             </Typography>
             <Box component="form" sx={{mt: 6, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3}}>
-                <TextField select label="Select Role" value={form.role} sx={{width: '50%'}}
+                <TextField select label="Select Role" value={form.role} sx={{width: {xs: '100%', lg: '50%'} }}
                 onChange={(e) => setForm({...form, role: e.target.value})}>
                     {roles.map((r)=> (
                         <MenuItem key={r} value={r}>
@@ -33,11 +33,11 @@ const Login = () =>{
                         </MenuItem>
                     ))}
                 </TextField>
-                <TextField label="Email" type="email" value={form.email} sx={{width: '50%'}} onChange={(e) => setForm({...form, email: e.target.value})}/>
-                <TextField label="Password" type="password" value={form.password} sx={{width: '50%'}}
+                <TextField label="Email" type="email" value={form.email} sx={{width: {xs: '100%', lg: '50%'} }} onChange={(e) => setForm({...form, email: e.target.value})}/>
+                <TextField label="Password" type="password" value={form.password} sx={{width: {xs: '100%', lg: '50%'} }}
                 onChange={(e) => setForm({...form, password: e.target.value})} />
 
-                <Button variant="contained" sx={{textTransform: 'none', width: '50%', bgcolor: '#ee0e0eff'}}>Log In</Button>
+                <Button variant="contained" sx={{textTransform: 'none', width: {xs: '100%', lg: '50%'}, bgcolor: '#ee0e0eff'}}>Log In</Button>
                 <Typography variant="h5">
                     Don't have an account?  
                     <Link href='/sign-up' sx={{textDecoration: 'none'}}>Sign Up</Link>
