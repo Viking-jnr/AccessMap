@@ -2,6 +2,8 @@ import { Box, Button, Container, Link, MenuItem, Paper, TextField, Typography } 
 import Logo from '../assets/Images/Logo.png'
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from 'axios'
+import { useAuth } from "../Context/authContext";
 
 //List of User Roles
 const roles = [
@@ -13,6 +15,34 @@ const Login = () =>{
     const [form, setForm] = useState({
         role: 'PWD User', email: '', password: ''
     });
+    const { setUser } = useAuth();
+
+    const handleLogin = async () => {
+        const response = await axios.post('http://localhost:4000/auth/login', form);
+        const { token, user } = response.data;
+        setUser(user); //set the user globally
+
+        //store the token and the user locally
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+
+        //Redirect based on user role
+        if (user.role === 'Admin'){
+            navigate('/admin-dashboard');
+        }
+        else if (user.role === 'Government Official'){
+            navigate('/government-dashboard')
+        }
+        else if (user.role === 'Service Provider'){
+            navigate('/provider-dashboard')
+        }
+        else if (user.role === 'PWD User'){
+            navigate('/report-barrier')
+        }
+        else {
+            console.log('Invalid role')
+        }
+    }
     
     return(
         <>
@@ -37,7 +67,10 @@ const Login = () =>{
                 <TextField label="Password" type="password" value={form.password} sx={{width: {xs: '100%', lg: '50%'} }}
                 onChange={(e) => setForm({...form, password: e.target.value})} />
 
-                <Button variant="contained" sx={{textTransform: 'none', width: {xs: '100%', lg: '50%'}, bgcolor: '#ee0e0eff'}}>Log In</Button>
+                <Button variant="contained" sx={{textTransform: 'none', width: {xs: '100%', lg: '50%'}, bgcolor: '#ee0e0eff'}}
+                onClick={handleLogin}>
+                    Log In
+                </Button>
                 <Typography variant="h5">
                     Don't have an account?  
                     <Link href='/sign-up' sx={{textDecoration: 'none'}}>Sign Up</Link>
