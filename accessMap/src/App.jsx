@@ -5,6 +5,7 @@ import Login from './auth/Login'
 import SignUp from './auth/SignUp'
 import { AuthProvider } from './Context/authContext'
 import Report from './Dashboards/ReportBarrier'
+import Admin from './Dashboards/AdminDashboard'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path='/log-in' element={<Login />} />
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/report-barrier' element={<Report />} />
+            <Route path='/admin-dashboard' element={<Admin />} />
           </Routes>
         </main>
       </div>

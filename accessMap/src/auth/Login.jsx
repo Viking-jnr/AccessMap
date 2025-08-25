@@ -18,7 +18,7 @@ const Login = () =>{
     const { setUser } = useAuth();
 
     const handleLogin = async () => {
-        const response = await axios.post('http://localhost:4000/auth/login', form);
+        const response = await axios.post('https://access-map.onrender.com/auth/login', form);
         const { token, user } = response.data;
         setUser(user); //set the user globally
 

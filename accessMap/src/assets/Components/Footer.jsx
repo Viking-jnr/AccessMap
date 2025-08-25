@@ -33,7 +33,7 @@ const Footer = () => {
                 <Grid item xs={12} md={4}>
                     <Grid container spacing={2} justifyContent={'center'}>
                         <Grid item>
-                            <Link href="/log-in" color="inherit" underline="hover">Report Barrier</Link>
+                            <Link href="/report-barrier" color="inherit" underline="hover">Report Barrier</Link>
                         </Grid>
                         <Grid item>
                             <Link href="/maps" color="inherit" underline="hover">View Maps</Link>
