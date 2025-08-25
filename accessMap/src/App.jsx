@@ -5,7 +5,7 @@ import Login from './auth/Login'
 import SignUp from './auth/SignUp'
 import { AuthProvider } from './Context/authContext'
 import Report from './Dashboards/ReportBarrier'
-import Admin from './Dashboards/AdminDashboard'
+import Admin from './Dashboards/Admin/AdminDashboard'
 
 function App() {
 
