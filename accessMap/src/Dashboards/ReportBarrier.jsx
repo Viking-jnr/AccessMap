@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/authContext"
-import { Button } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
+import Logo from '../assets/Images/Logo.png'
+import Header from "../assets/Components/Header";
 
 const Report = () => {
     const { user } = useAuth();
@@ -18,9 +20,16 @@ const Report = () => {
         )
     }
     return(
-        <div>
-            <h2> Report Barrier</h2>
-        </div>
+        <>
+        <Header />
+        
+        <Container maxWidth='md'>
+            <Typography variant="h3" gutterBottom align="center"> Report a Barrier</Typography>
+            <Typography variant="body1" align="center">
+                Help improve accessibility by reporting barriers you encounter.
+            </Typography>
+        </Container>
+        </>
     )
 }
 

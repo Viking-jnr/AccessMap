@@ -2,6 +2,7 @@ import { AppBar, Box, Button, IconButton, Toolbar, Typography, useMediaQuery, us
 import Logo from '../Images/Logo.png'
 import { useNavigate } from "react-router-dom"
 import { Home, Map, Menu as MenuIcon } from '@mui/icons-material'
+import { useAuth } from "../../Context/authContext"
 
 //Styled compnents
 const Styles = {
@@ -19,6 +20,15 @@ const Header = () => {
     const navigate= useNavigate();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    
+    //To check if a user is logged in
+    const {user, logout } = useAuth();
+
+    //To logout a user
+    const handleLogout =() => {
+        logout();
+        navigate('/log-in');
+    }
 
     return(
         <AppBar position="static" sx={{bgcolor: '#1e2a78', display: 'flex', pl: 0, ml: 0, width: '100vw'}}>
@@ -45,10 +55,16 @@ const Header = () => {
                         <Button sx={Styles.NavButton}>Contacts</Button>
                     </Box>
                     <Box flexGrow={1} />
+                    {user && (
+                        <Button sx={Styles.NavButton} onClick={handleLogout}>Log Out</Button>
+                    )}
+
+                    {!user && (
                     <Box display={'flex'} gap={3}>
                         <Button sx={Styles.NavButton} onClick={()=> navigate('/log-in')}>Log In</Button>
                         <Button sx={Styles.NavButton} onClick={()=> navigate('/sign-up')}>Sign Up</Button>
                     </Box>
+                    )}
                 </Box>
                 )}
             </Toolbar>

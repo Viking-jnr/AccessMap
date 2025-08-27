@@ -21,8 +21,8 @@ const SignUp = () =>{
             <Typography  variant="h3" fontWeight={'bold'}  color="#ee0e0eff">
                 AccessMap Kenya
             </Typography>
-            <Typography variant="caption1" gutterBottom>
-                <font face="monotype corsiva">Inform. Empower. Include</font>
+            <Typography variant="caption1" gutterBottom color='black' sx={{ fontFamily: "Brush Script MT, cursive" }}>
+                Inform. Empower. Include
             </Typography>
             <Box component="form" sx={{mt: 6, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3}}>
                 
