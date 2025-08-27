@@ -52,7 +52,7 @@ export default function Home() {
                     <Fade delay={1.2}>
                     <Grid container spacing={2} justifyContent="center" mt={3}>
                         <Grid item>
-                        <Button variant="contained" onClick={() => navigate('/log-in')} sx={Styles.Button}>
+                        <Button variant="contained" onClick={() => navigate('/report-barrier')} sx={Styles.Button}>
                             Report Barrier
                         </Button>
                         </Grid>
