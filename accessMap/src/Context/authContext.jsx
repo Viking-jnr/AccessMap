@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 //Create Context
 const AuthContext = createContext();
@@ -7,6 +7,15 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     //set global user state
     const [ user, setUser ] = useState(null);
+
+    //To ensure the user stays logged in even if the page is refreshed
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+
+        { storedToken && storedUser && setUser(storedUser); }
+        }, []);
+
 
     //To handle logout globally
     const logout = () => {
