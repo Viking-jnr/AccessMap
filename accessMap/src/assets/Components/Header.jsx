@@ -42,7 +42,8 @@ const Header = () => {
         <AppBar position="static" sx={{bgcolor: '#1e2a78', display: 'flex', pl: 0, ml: 0, width: '100vw'}}>
             <Toolbar sx={{maxWidth:'100vw', pl: 0}}>
                 <Box sx={{display: 'flex', width: '20%', m: 0, pl: 0}}>
-                  <img src={Logo} alt="AccessMap Kenya" height={'100px'} style={{marginLeft: 0}}/>
+                  <img src={Logo} alt="AccessMap Kenya" height={'100px'} style={{marginLeft: 0}} 
+                  onClick={() => navigate('/')}/>
                 </Box>
                 {/*Menu Icon for navigation in mobile*/}
                 {isMobile && (
@@ -57,10 +58,10 @@ const Header = () => {
                 <Box sx={{display: 'flex', flexDirection: 'row', flex: 1}}>
                     <Box sx={{display: 'flex', gap: 3}}>
                         <Button startIcon={<Home />} sx={Styles.NavButton} onClick={()=> navigate('/')}>Home</Button>
-                        <Button sx={Styles.NavButton}>About</Button>
-                        <Button sx={Styles.NavButton}>Report Barrier</Button>
-                        <Button startIcon={<Map />} sx={Styles.NavButton}>Maps</Button>
-                        <Button sx={Styles.NavButton}>Contacts</Button>
+                        <Button sx={Styles.NavButton} onClick={()=> navigate('/about')}>About</Button>
+                        <Button sx={Styles.NavButton} onClick={()=> navigate('/report-barrier')}>Report Barrier</Button>
+                        <Button startIcon={<Map />} sx={Styles.NavButton} onClick={()=> navigate('/maps')}>Maps</Button>
+                        <Button sx={Styles.NavButton} onClick={()=> navigate('/contacts')}>Contacts</Button>
                     </Box>
                     <Box flexGrow={1} />
                     {user && (
