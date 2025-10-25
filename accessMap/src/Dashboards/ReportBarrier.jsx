@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/authContext"
 import { Button, Container, MenuItem, Slider, TextField, Typography } from "@mui/material";
-import Logo from '../assets/Images/Logo.png'
 import Header from "../assets/Components/Header";
 import { useState } from "react";
 
@@ -36,6 +35,11 @@ const Report = () => {
                 <Button sx={{backgroundColor: '#ee0e0eff', color: 'white'}} onClick={()=> navigate('/log-in')}>
                     Go to Login
                 </Button>
+
+                <Typography mt={2} variant="h5">
+                    Don't have an account?  
+                    <Link to={'/sign-up'} sx={{textDecoration: 'none'}}>Sign Up</Link>
+                </Typography>
             </div>
         )
     }
